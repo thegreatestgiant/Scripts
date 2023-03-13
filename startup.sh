@@ -1,12 +1,8 @@
 #!/bin/bash
 
-#Update
+# Call Base
 echo "starting"
-sudo apt update && sudo apt upgrade -y
-
-# Install everything needed
-echo "Install"
-sudo apt install -y nano net-tools docker docker.io docker-compose nautilus bat nginx sshfs zip unzip cmatrix tree
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODR2ILCG5U4S3F7KJRWZAPYYDA | sh -s
 
 echo "Hostname"
 sudo hostnamectl set-hostname Home
@@ -92,19 +88,6 @@ chmod 600 id_ed25519 id_rsa
 
 cd ~/
 
-# Alias
-echo "Alias"
-echo "alias bat='batcat'
-alias cmatrix='cmatrix -sb'
-alias i='sudo apt install -y'
-alias cd..='cd ..'
-alias ip='curl icanhazip.com'
-alias ls='ls --color=auto -h'
-alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
-alias weather='curl wttr.in'
-alias zupdate='sudo apt update && sudo apt upgrade -y'
-HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
-
 #fstab
 cd /etc/ && sudo chown seanalter:seanalter fstab fuse.conf && sudo echo "
 
@@ -125,6 +108,7 @@ user_allow_other
 # (with a single space before and after the equals sign).
 
 #mount_max = 1000" > fuse.conf && sudo chown root:root fstab fuse.conf && cd ~/
+
 #Clean up
 echo "Clean up"
 sudo rm startup.sh
@@ -133,5 +117,3 @@ sudo apt update && sudo apt upgrade -y
 
 #Done
 echo "done"
-
-exec bash
