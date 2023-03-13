@@ -1,10 +1,15 @@
 #!/bin/bash
 
-echo "alias bat=\"batcat\"
-alias ip=\"curl icanhazip.com\"
-alias i=\"sudo apt install\"
-alias zupdate=\"sudo apt update && sudo apt upgrade -y\"
-alias speedtest=\"curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -\"" >> ~/.bashrc
+echo "alias bat='batcat'
+alias cmatrix='cmatrix -sb'
+alias i='sudo apt install -y'
+alias cd..='cd ..'
+alias ip='curl icanhazip.com'
+alias ls='ls --color=auto -h'
+alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
+alias weather='curl wttr.in'
+alias zupdate='sudo apt update && sudo apt upgrade -y'
+HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
 
 source ~/.bashrc
 
