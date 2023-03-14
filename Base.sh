@@ -11,7 +11,7 @@ alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
 HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
 
-source ~/.bashrc
+. ~/.bashrc
 
 sudo apt update && sudo apt upgrade -y
 
