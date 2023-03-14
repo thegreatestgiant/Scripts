@@ -1,6 +1,8 @@
 #!/bin/bash -i
 
-echo "alias bat='batcat'
+shopt -s expand_aliases
+
+alias bat='batcat'
 alias cmatrix='cmatrix -sb'
 alias i='sudo apt install -y'
 alias cd..='cd ..'
@@ -9,9 +11,6 @@ alias ls='ls --color=auto -h'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
-#HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
-
-. ~/.bashrc
 
 sudo apt update -y && sudo apt upgrade -y
 
