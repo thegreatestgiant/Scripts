@@ -32,5 +32,5 @@ services:
     
     echo "finished"
     
-    echo "go to ${hostname -I}:3000"
+    echo "go to yourip:3000"
     echo "Done!"
