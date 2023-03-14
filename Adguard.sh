@@ -3,8 +3,10 @@
 # Base
 curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
 
-# Kill 80
+# Kill 80, 53
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+sudo lsof -t -i tcp:53 -s tcp:listen | sudo xargs kill
+
 
 echo "Starting docker"
 echo "version: '2'
