@@ -2,7 +2,7 @@
 
 # Call Base
 echo "starting"
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODRUFAKI6PA6TFQBDFWZAP2DQA | sh -s
+curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
 
 echo "Hostname"
 sudo hostnamectl set-hostname Home
