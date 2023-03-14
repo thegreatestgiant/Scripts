@@ -9,7 +9,7 @@ alias ls='ls --color=auto -h'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -'
 alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
-HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
+#HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
 
 . ~/.bashrc
 
