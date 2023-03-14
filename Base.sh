@@ -16,7 +16,7 @@ setup_shell() {
 }
 
 setup_packages() {
-    sudo apt update -y && sudo apt upgrade -y
+    sudo apt update -y && sudo update-initramfs -u -y && sudo apt upgrade -y
 
     sudo apt install -y nano net-tools docker docker.io docker-compose nautilus bat nginx sshfs zip unzip cmatrix tree
 
