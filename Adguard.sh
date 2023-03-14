@@ -3,6 +3,9 @@
 # Base
 curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
 
+# get rid of  nginx?
+sudo apt remove nginx -y
+
 echo "Starting docker"
 echo "version: '2'
 services:
