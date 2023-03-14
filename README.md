@@ -4,10 +4,10 @@
 ---
 # Home linux server 
 ```bash
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODQCNNGFIUYGMDGKY4UZAPYZLA | sh -s
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODRCTJ3RQJEM6MFKAWSZAP2ESQ | sh -s
 ```
 
 # Base file
 ```bash
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODQPEJM5OVE5HYMCDXAZAPZDUA | sh -s
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODRUFAKI6PA6TFQBDFWZAP2DQA | sh -s
 ```
