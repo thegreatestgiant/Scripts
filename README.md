@@ -4,7 +4,7 @@
 ---
 # Home linux server 
 ```bash
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODRCTJ3RQJEM6MFKAWSZAP2ESQ | sh -s
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODQD6HXQ3QAAZFICXWWZAP3D2Q | sh -s
 ```
 
 # Base file
