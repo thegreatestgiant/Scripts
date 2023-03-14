@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 echo "alias bat='batcat'
 alias cmatrix='cmatrix -sb'
