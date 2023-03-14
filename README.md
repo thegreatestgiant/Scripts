@@ -11,3 +11,4 @@ curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startu
 ```bash
 curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
 ```
+edit through [this](https://github.com/thegreatestgiant/cdn/edit/main/Base.sh) link
