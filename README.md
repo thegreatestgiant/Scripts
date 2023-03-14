@@ -9,5 +9,5 @@ curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startu
 
 # Base file
 ```bash
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODR2ILCG5U4S3F7KJRWZAPYYDA | sh -s
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh?token=GHSAT0AAAAAAB7BMODQPEJM5OVE5HYMCDXAZAPZDUA | sh -s
 ```
