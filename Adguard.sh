@@ -4,7 +4,8 @@
 curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
 
 # Kill 80, 53
-sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+sudo kill -9 `sudo lsof -t -i:80`
+sudo kill -9 `sudo lsof -t -i:53`
 
 echo "Starting docker"
 echo "version: '2'
@@ -13,8 +14,8 @@ services:
     image: adguard/adguardhome
     container_name: adguardhome
     ports:
-      - 54:53/tcp
-      - 54:53/udp
+      - 53:53/tcp
+      - 53:53/udp
       - 784:784/udp
       - 853:853/tcp
       - 3000:3000/tcp
