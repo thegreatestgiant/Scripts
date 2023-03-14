@@ -7,6 +7,9 @@ curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -
 sudo kill -9 `sudo lsof -t -i:80`
 sudo kill -9 `sudo lsof -t -i:53`
 
+sudo systemctl stop systemd-resolved.service
+sudo systemctl disable systemd-resolved.service  
+
 echo "Starting docker"
 echo "version: '2'
 services:
