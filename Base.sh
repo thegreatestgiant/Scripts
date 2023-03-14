@@ -1,6 +1,6 @@
 #!/bin/bash -i
 
-function setup_shell() {
+setup_shell() {
     echo "alias bat='batcat'
     alias cmatrix='cmatrix -sb'
     alias i='sudo apt install -y'
@@ -15,7 +15,7 @@ function setup_shell() {
     exec bash
 }
 
-function setup_packages() {
+setup_packages() {
     sudo apt update -y && sudo apt upgrade -y
 
     sudo apt install -y nano net-tools docker docker.io docker-compose nautilus bat nginx sshfs zip unzip cmatrix tree
