@@ -13,7 +13,7 @@ HISTTIMEFORMAT='%Y-%m-%d %T '" >> .bashrc
 
 . ~/.bashrc
 
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y
 
 sudo apt install -y nano net-tools docker docker.io docker-compose nautilus bat nginx sshfs zip unzip cmatrix tree
 
