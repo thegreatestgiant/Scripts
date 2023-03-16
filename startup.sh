@@ -2,7 +2,7 @@
 
 # Call Base
 echo "starting"
-curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
+curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | bash
 
 echo "Hostname"
 sudo hostnamectl set-hostname Home
