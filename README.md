@@ -4,7 +4,7 @@
 ---
 # Home linux server 
 ```bash
-curl -sSLo startup.sh https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODQO4XJKAEWGXXKYECQZASRHRQ; chmod +x startup.sh; ./startup.sh
+curl -sSLo startup.sh https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODRE4IKQNOT6UJH3PUEZASTA4Q; chmod +x startup.sh; ./startup.sh
 ```
 
 # Base file
