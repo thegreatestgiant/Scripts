@@ -4,11 +4,11 @@
 ---
 # Home linux server 
 ```bash
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODRNWOLVA5UNHVL7FFWZASQABQ | sh -s
+curl -sSLo startup.sh https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/startup.sh?token=GHSAT0AAAAAAB7BMODQO4XJKAEWGXXKYECQZASRHRQ; chmod +x startup.sh; ./startup.sh
 ```
 
 # Base file
 ```bash
-curl -sSL https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh | sh -s
+curl -sSLO https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn@latest/Base.sh; chmod +x Base.sh
 ```
 edit through [this](https://github.com/thegreatestgiant/cdn/edit/main/Base.sh) link
