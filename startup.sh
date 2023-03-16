@@ -36,7 +36,7 @@ Host portainer
   User ubuntu
 
 Host kavita
-  Hostname 129.213.114.228
+  Hostname 129.153.36.88
   User ubuntu" > config
 
 echo "|1|8a+oP3jnLHPKYHb1fxDBJsFAI4U=|Sc3wqRweT0A7V4X6gB/ZhnR3gG0= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHSZtriN9w9yfor7IASopcBNNoDai/88dccyDqQ9DdgrgGGRz9ya1YdGsGLBLxydICimcw1i7ELNX5DoDP1LPrY=
