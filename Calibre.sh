@@ -13,9 +13,3 @@ docker run -d \
   -v /calibre:/config \
   --restart unless-stopped \
   lscr.io/linuxserver/calibre:latest
-  
-  docker exec -it calibre /bin/bash
-  apt-get update
-  apt-get install firefox -y
-  
-  docker restart calibre
