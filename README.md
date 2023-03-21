@@ -9,15 +9,11 @@ curl -sSLo startup.sh https://home.drshacker.ml/startup.sh; chmod +x startup.sh;
 
 # Base file
 ```bash
-curl -sSLO https://cdn.jsdelivr.net/gh/thegreatestgiant/cdn/Base.sh; chmod +x Base.sh; ./Base.sh -y
+curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh; chmod +x Base.sh; ./Base.sh -y
 ```
 edit through [this](https://github.com/thegreatestgiant/cdn/edit/main/Base.sh) link
 
 # Calibre
 ```sh
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh?token=GHSAT0AAAAAAB7BMODRIB3M2QM4UZEUMVU2ZAXQQSA | bash
-```
-
-```sh
-for file in *.epub; do mv "$file" "${file/ (*)/}"; done
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh | bash
 ```
