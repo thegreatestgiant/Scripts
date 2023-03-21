@@ -2,7 +2,7 @@
 
 (curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh && chmod +x Base.sh && ./Base.sh -y) || apk update; apk add nano
 
-docker pull linuxserver/calibre:latest
+docker pull lscr.io/linuxserver/calibre:latest
 
 docker run -d \
   --name=calibre \
