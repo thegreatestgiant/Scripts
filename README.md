@@ -11,7 +11,6 @@ curl -sSLo startup.sh https://home.drshacker.ml/startup.sh; chmod +x startup.sh;
 ```bash
 curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh; chmod +x Base.sh; ./Base.sh -y
 ```
-edit through [this](https://github.com/thegreatestgiant/cdn/edit/main/Base.sh) link
 
 # Calibre
 ```sh
