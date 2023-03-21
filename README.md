@@ -17,3 +17,7 @@ edit through [this](https://github.com/thegreatestgiant/cdn/edit/main/Base.sh) l
 ```sh
 curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh?token=GHSAT0AAAAAAB7BMODRIB3M2QM4UZEUMVU2ZAXQQSA | bash
 ```
+
+```sh
+for file in *.epub; do mv "$file" "${file/ (*)/}"; done
+```
