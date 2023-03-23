@@ -15,3 +15,7 @@ docker run -d \
   -v /root/calibre:/config \
   --restart unless-stopped \
   thegreatestgiant/calibre:latest
+
+if [[ -f calibre/thinclient_drives/ ]];then
+  rm -rf calibre/thinclient_drives/
+fi
