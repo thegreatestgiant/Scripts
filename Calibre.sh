@@ -1,6 +1,10 @@
 #!/bin/sh
 
-(curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh && chmod +x Base.sh && ./Base.sh -y) || apk update; apk add nano
+if [[ -f /etc/apt ]]; then
+  curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh && chmod +x Base.sh && ./Base.sh -y
+  else
+    apk update; apk add nano
+ fi
 
 docker pull thegreatestgiant/calibre:latest
 
@@ -15,7 +19,3 @@ docker run -d \
   -v /root/calibre:/config \
   --restart unless-stopped \
   thegreatestgiant/calibre:latest
-
-if [[ -f calibre/thinclient_drives/ ]];then
-  rm -rf calibre/thinclient_drives/
-fi
