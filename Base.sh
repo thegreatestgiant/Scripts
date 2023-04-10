@@ -71,14 +71,19 @@ while getopts ":hy" opt; do
   esac
 done
 
+sudo apt update && sudo apt upgrade -y
+
 echo -n "Do you want to install all packages? [Y/n] "
 read choice_all
 choice_all="${choice_all:-y}"
-
 if [[ "$choice_all" =~ ^[Yy]$ ]]; then
   install_all_packages
 else
   install_selected_packages
 fi
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
 
 setup_shell
