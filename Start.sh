@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo useradd -m -s /bin/bash sean && echo "sean:ask your mom" | sudo chpasswd
-sudo usermod -aG sudo myusername
+sudo usermod -aG sudo sean
 
 sudo mkdir /home/sean/.ssh
 sudo cp ~/.ssh/authorized_keys /home/sean/.ssh
