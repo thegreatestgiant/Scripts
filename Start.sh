@@ -3,7 +3,7 @@
 sudo useradd -m -s /bin/bash sean && echo "sean:ask your mom" | sudo chpasswd
 sudo usermod -aG sudo sean
 
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFm6+eST03I30f2Llr8qnn40HiuH0F4w0wmUL4dOth1o sean@Home" > tee /root/.ssh/authorized_keys > /dev/null
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFm6+eST03I30f2Llr8qnn40HiuH0F4w0wmUL4dOth1o sean@Home" | tee /root/.ssh/authorized_keys > /dev/null
 sudo mkdir /home/sean/.ssh
 sudo cp /root/.ssh/authorized_keys /home/sean/.ssh/authorized_keys
 sudo chown sean:sean -R /home/sean/.ssh
