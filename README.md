@@ -4,10 +4,10 @@
 ---
 # Base file
 ```bash
-curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh; chmod +x Base.sh; ./Base.sh -y
+sudo bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh) | sudo bash -s - -y"
 ```
 
 # Calibre
 ```sh
-curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh | bash
+curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh | sudo bash
 ```
