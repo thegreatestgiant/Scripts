@@ -12,7 +12,7 @@ sudo iptables -P INPUT ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
 sudo netfilter-persistent save -c
-sudo dpkg-reconfigure iptables-persistent -f
+sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
 
 sudo apt remove snapd -y && sudo apt autoremove -y
 sudo rm -rf /root/snap
