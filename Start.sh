@@ -21,6 +21,10 @@ sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
 sudo apt remove snapd -y && sudo apt autoremove -y
 sudo rm -rf /root/snap
 
+sudo apt update && sudo apt upgrade -y
+
+sudo rm -rf Start.sh
+
 sudo usermod -L ubuntu
 sudo passwd -l ubuntu
 sudo chage -E0 ubuntu
