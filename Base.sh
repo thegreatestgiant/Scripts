@@ -23,7 +23,7 @@ setup_shell() {
     fi
     
     sudo groupadd docker
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker sean
     newgrp docker
 
     exec bash
