@@ -5,8 +5,9 @@ sudo usermod -aG sudo sean
 
 sudo mkdir /home/sean/.ssh
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFm6+eST03I30f2Llr8qnn40HiuH0F4w0wmUL4dOth1o sean@Home" > ~/pub
+sudo chmod 600 ~/pub
+sudo chown sean:sean ~/pub
 sudo mv ~/pub /home/sean/.ssh
-sudo chown sean:sean -R /home/sean/.ssh
 
 echo "sean   ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/90-cloud-init-users > /dev/null
 
