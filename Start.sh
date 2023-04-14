@@ -11,8 +11,8 @@ sudo iptables --flush
 sudo iptables -P INPUT ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
-sudo netfilter-persistent save -y
-sudo dpkg-reconfigure iptables-persistent -y
+sudo netfilter-persistent save -c
+sudo dpkg-reconfigure iptables-persistent -f
 
 sudo apt remove snapd -y && sudo apt autoremove -y
 sudo rm -rf /root/snap
