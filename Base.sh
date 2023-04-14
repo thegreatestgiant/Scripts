@@ -30,7 +30,7 @@ setup_shell() {
 }
 
 update() {
-    sudo apt update -y && sudo update-initramfs -u -y && sudo apt upgrade -y
+    sudo apt update -y && sudo update-initramfs -u && sudo apt upgrade -y
 }
 
 install_all_packages() {
