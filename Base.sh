@@ -21,6 +21,10 @@ setup_shell() {
     if ! id "sean" >/dev/null 2>&1; then
         setup_better_user
     fi
+    
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
 
     exec bash
 }
@@ -121,9 +125,5 @@ if [[ "$choice_all" =~ ^[Yy]$ ]]; then
 else
   install_selected_packages
 fi
-
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
 
 setup_shell
