@@ -16,9 +16,7 @@ setup_shell() {
     alias grep='grep --color=auto'
     alias unmount='fusermount -u Kavita'
     alias remount='fusermount -u Kavita; mount -a'
-    HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc
-
-    rm Base.sh
+    HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc > /dev/null
 
     if ! id "sean" >/dev/null 2>&1; then
         setup_better_user
@@ -32,6 +30,8 @@ update() {
 }
 
 install_all_packages() {
+  echo "Updating first"
+  update
   echo "Installing all packages without prompting..."
   sudo apt install -y "${PACKAGES[@]}"
   echo "Done!"
@@ -49,7 +49,9 @@ install_selected_packages() {
       unset PACKAGES[$choice]
     fi
   done
-
+  
+  echo "Updating first"
+  update
   echo "Installing selected packages..."
   sudo apt install -y "${PACKAGES[@]}"
   echo "Done!"
@@ -77,6 +79,7 @@ setup_better_user() {
     sudo iptables -P FORWARD ACCEPT
     sudo netfilter-persistent save -c
     sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
+    echo "Flushed!"
 
     sudo apt remove snapd -y && sudo apt autoremove -y
     sudo rm -rf /root/snap
@@ -99,7 +102,6 @@ while getopts ":hy" opt; do
       exit 0
       ;;
     y)
-      update
       install_all_packages
       setup_shell
       exit 0
@@ -115,10 +117,8 @@ echo -n "Do you want to install all packages? [Y/n] "
 read choice_all
 choice_all="${choice_all:-y}"
 if [[ "$choice_all" =~ ^[Yy]$ ]]; then
-  update
   install_all_packages
 else
-  update
   install_selected_packages
 fi
 
