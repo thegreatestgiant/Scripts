@@ -3,9 +3,12 @@
 sudo useradd sean && echo "sean:ask your mom" | sudo chpasswd
 sudo adduser sean sudo
 
+sudo mkdir /home/sean
 sudo mkdir /home/sean/.ssh
 sudo cp ~/.ssh/authorized_keys /home/sean/.ssh
 sudo chown sean:sean -R /home/sean/.ssh
+
+echo "sean   ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/90-cloud-init-users > /dev/null
 
 sudo iptables --flush
 sudo iptables -P INPUT ACCEPT
