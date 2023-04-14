@@ -1,9 +1,8 @@
 #!/bin/bash
 
-sudo useradd sean && echo "sean:ask your mom" | sudo chpasswd
-sudo adduser sean sudo
+sudo useradd -m -s /bin/bash sean && echo "sean:ask your mom" | sudo chpasswd
+sudo usermod -aG sudo myusername
 
-sudo mkdir /home/sean
 sudo mkdir /home/sean/.ssh
 sudo cp ~/.ssh/authorized_keys /home/sean/.ssh
 sudo chown sean:sean -R /home/sean/.ssh
