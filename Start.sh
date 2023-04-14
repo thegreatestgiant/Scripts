@@ -22,7 +22,7 @@ sudo rm -rf /root/snap
 
 #sudo apt update -y && sudo apt upgrade -y
 
-sudo rm -rf Start.sh
+#sudo rm -rf Start.sh
 
 sudo usermod -L ubuntu
 sudo passwd -l ubuntu
