@@ -34,9 +34,11 @@ update() {
 }
 
 install_all_packages() {
-  echo "Updating first"
+  echo "Updating before installing all_packages"
   update
-  echo "Installing all packages without prompting..."
+  echo "
+  Installing all packages without prompting...
+  "
   sudo apt install -y "${PACKAGES[@]}"
   echo "Done!"
 }
@@ -54,9 +56,13 @@ install_selected_packages() {
     fi
   done
   
-  echo "Updating first"
+  echo "
+  Updating b4 installing selected packages
+  "
   update
-  echo "Installing selected packages..."
+  echo "
+  Installing selected packages...
+  "
   sudo apt install -y "${PACKAGES[@]}"
   echo "Done!"
 }
