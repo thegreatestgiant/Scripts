@@ -4,7 +4,7 @@
 ---
 # Base file
 ```bash
-sudo bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh) | sudo bash -s - -y"
+curl -sSL 'https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh' | sudo bash -s - -y
 ```
 
 # Calibre
