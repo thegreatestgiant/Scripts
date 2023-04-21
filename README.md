@@ -10,7 +10,7 @@ curl -sSL 'https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.
 
 ### Interactive
 ```bash
-curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh; chmod +x Base.sh;sed -i '/^setup_shell() {/,/^}$/ s/^    exec bash$/    rm Base.sh\n&/' Base.sh; ./Base.sh;
+curl -sSLO https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Base.sh; chmod +x Base.sh;sudo ./Base.sh || ./Base.sh
 ```
 
 # Make my User
