@@ -23,8 +23,9 @@
     sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
     echo "Flushed!"
 
+    sudo snap remove oracle-cloud-agent && sudo snap remove lxd && sudo snap remove core18 && sudo snap remove core20 && sudo snap remove snapd 
     sudo apt remove snapd -y && sudo apt autoremove -y
-    sudo rm -rf /root/snap
+    sudo rm -rf /root/snap && sudo rm -rf /snap
 
     echo "locking ubuntu account"
     sudo usermod -L ubuntu
