@@ -105,3 +105,9 @@ else
 fi
 
 setup_shell
+
+
+#Install flatpak and all its packages
+#echo "flatpak"
+#sudo apt install flatpak gnome-software-plugin-flatpak -y
+#sudo flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
