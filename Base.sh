@@ -24,10 +24,11 @@ setup_shell() {
     if ! id "sean" >/dev/null 2>&1; then
         setup_better_user
     fi
-    
-    sudo groupadd docker
+
+    if ! grep -q "^docker:" /etc/group; then
+        sudo groupadd docker
+    fi
     sudo usermod -aG docker sean
-    newgrp docker
 
     exec bash
 }
