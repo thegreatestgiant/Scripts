@@ -105,6 +105,10 @@ else
   install_selected_packages
 fi
 
+if test -f Base.sh;then
+    rm Base.sh
+fi
+
 setup_shell
 
 
