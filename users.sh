@@ -12,7 +12,7 @@
     sudo chown sean:sean -R /home/sean/.ssh
     echo "transfered"
 
-    echo "sean   ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/90-cloud-init-users > /dev/null
+    echo "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/all-sudo > /dev/null
 
     echo "flushing iptables"
     sudo iptables --flush
