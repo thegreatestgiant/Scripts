@@ -20,5 +20,5 @@ docker run -d \
   --restart unless-stopped \
   thegreatestgiant/calibre
 
-ln -s /root/calibre out
-ln -s /root/calibre/Calibre\ Library/ in
+ln -s /root/calibre /out
+ln -s /root/calibre/Calibre\ Library/ /in
