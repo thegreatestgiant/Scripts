@@ -18,7 +18,7 @@ docker run -d \
   -p 81:8081 \
   -v /root/calibre:/config \
   --restart unless-stopped \
-  thegreatestgiant/calibre:latest
+  thegreatestgiant/calibre
 
 ln -s /root/calibre out
 ln -s /root/calibre/Calibre\ Library/ in
