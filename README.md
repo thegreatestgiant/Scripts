@@ -22,3 +22,4 @@ sudo bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scr
 ```sh
 curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh | sudo bash
 ```
+*In order to edit the Calibre docker image, you have to delete the volume*
