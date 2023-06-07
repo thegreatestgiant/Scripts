@@ -16,9 +16,8 @@ docker run -d \
   -e TZ=america/new_york \
   -p 80:8080 \
   -p 81:8081 \
-  -v /root/calibre:/config \
+  -v /out:/config \
   --restart unless-stopped \
   thegreatestgiant/calibre
 
-ln -s /root/calibre /out
-ln -s /root/calibre/Calibre\ Library/ /in
+ln -s /out/Calibre\ Library/ /in
