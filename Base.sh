@@ -41,10 +41,12 @@ update() {
 install_all_packages() {
   echo "Updating before installing all_packages"
   update
+  ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+  dpkg-reconfigure --frontend noninteractive tzdata
   echo "
   Installing all packages
   "
-  sudo apt install -y "${PACKAGES[@]}"
+  sudo apt install --no-install-recommends -y "${PACKAGES[@]}"
   echo "Done!"
 }
 
