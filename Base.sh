@@ -34,8 +34,8 @@ HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc > /dev/null
 }
 
 update() {
-    export DEBIAN_FRONTEND=noninteractive
-    sudo apt update && sudo apt upgrade -y
+    DEBIAN_FRONTEND=noninteractive apt update && DEBIAN_FRONTEND=noninteractive apt upgrade -y
+
 }
 
 install_all_packages() {
