@@ -16,12 +16,4 @@ sudo bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scr
 ```sh
 curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/Calibre.sh | sudo bash
 ```
-*In order to edit the Calibre docker image, you have to do this*
-```sh
-docker cp calibre:/config . && docker cp calibre:/docker-mods .
-tar -czvf config.tar.gz config/
-echo "tar -xzf /tmp/config.tar.gz -C /config --strip-components=1" >> docker-mods 
-FROM lscr.io/linuxserver/calibre:latest
-COPY config.tar.gz /tmp/
-COPY docker-mods /
-```
+*In order to edit the Calibre docker image, go to my [repo](https://github.com/thegreatestgiant/docker-calibre)https://github.com/thegreatestgiant/docker-calibre*
