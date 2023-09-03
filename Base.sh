@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "tree")
+PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "tree" "git")
 
 setup_shell() {
 echo "
