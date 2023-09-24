@@ -29,6 +29,7 @@ alias zupdate='sudo apt update && sudo apt upgrade -y'
 alias grep='grep --color=auto'
 HISTTIMEFORMAT='%Y-%m-%d %T '
 EOL
+    echo "In order for alias to take effect you must restart shell"
     fi
 
     if ! id "sean" >/dev/null 2>&1; then
