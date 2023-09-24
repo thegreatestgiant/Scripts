@@ -12,7 +12,8 @@
     sudo chown sean:sean -R /home/sean/.ssh
     echo "transfered"
 
-    echo "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/all-sudo > /dev/null
+    echo "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+sean   ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/all-sudo > /dev/null
 
     echo "flushing iptables"
     sudo iptables --flush
