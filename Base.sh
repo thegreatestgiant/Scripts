@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "fuse3")
+PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "fuse3" "curl" "wget")
 
 setup_shell() {
 echo "
@@ -19,16 +19,16 @@ alias zupdate='sudo apt update && sudo apt upgrade -y'
 alias grep='grep --color=auto'
 HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc > /dev/null
 
-    if ! id "sean" >/dev/null 2>&1; then
-        setup_better_user
-    fi
+if ! id "sean" >/dev/null 2>&1; then
+    setup_better_user
+fi
 
-    if ! grep -q "^docker:" /etc/group; then
-        sudo groupadd docker
-    fi
-    sudo usermod -aG docker sean
-    newgrp docker
-    exec bash
+if ! grep -q "^docker:" /etc/group; then
+    sudo groupadd docker
+fi
+sudo usermod -aG docker sean
+newgrp docker
+exec bash
 }
 
 update() {
@@ -40,16 +40,10 @@ install_all_packages() {
   echo "Updating before installing all_packages"
   update
   ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
-  dpkg-reconfigure --frontend noninteractive tzdata
   echo "
   Installing all packages
   "
   sudo apt install --no-install-recommends -y "${PACKAGES[@]}"
-  # node
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  source ~/.bashrc
-  nvm install 18
-
   echo "Done!"
 }
 
@@ -60,9 +54,3 @@ setup_better_user() {
 install_all_packages
 
 setup_shell
-
-
-#Install flatpak and all its packages
-#echo "flatpak"
-#sudo apt install flatpak gnome-software-plugin-flatpak -y
-#sudo flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
