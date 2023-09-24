@@ -1,38 +1,68 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo "This script must be run as root."
+    exit 69
+fi
+
+# Create a new user 'sean'
+if ! id "sean" &>/dev/null; then
     echo "Creating new user..."
-    sudo useradd -m -s /bin/bash sean && echo "sean:ask your mom" | sudo chpasswd
-    sudo usermod -aG sudo sean
-    echo "Created"
+    useradd -m -s /bin/bash sean
+    echo "sean:ask your mom" | chpasswd
+    usermod -aG sudo sean
+    echo "User 'sean' created."
+fi
 
-    echo "transfering ssh keys..."
-    echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFm6+eST03I30f2Llr8qnn40HiuH0F4w0wmUL4dOth1o" | sudo tee /root/.ssh/authorized_keys > /dev/null
-    sudo mkdir -p /home/sean/.ssh
-    sudo cp /root/.ssh/authorized_keys /home/sean/.ssh/authorized_keys
-    sudo chown sean:sean -R /home/sean/.ssh
-    echo "transfered"
+# Transfer SSH keys
+if [ ! -f /home/sean/.ssh/authorized_keys ]; then
+    echo "Transferring SSH keys..."
+    mkdir -p /root/.ssh
+    echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFm6+eST03I30f2Llr8qnn40HiuH0F4w0wmUL4dOth1o" > /root/.ssh/authorized_keys
+    mkdir -p /home/sean/.ssh
+    cp /root/.ssh/authorized_keys /home/sean/.ssh/authorized_keys
+    chown sean:sean -R /home/sean/.ssh
+    echo "SSH keys transferred."
+fi
 
-    echo "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
-sean   ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/all-sudo > /dev/null
+# Add sudo configurations
+cat <<EOF > /etc/sudoers.d/all-sudo
+%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+sean   ALL=(ALL:ALL) NOPASSWD: ALL
+EOF
 
-    echo "flushing iptables"
-    sudo iptables --flush
-    sudo iptables -P INPUT ACCEPT
-    sudo iptables -P OUTPUT ACCEPT
-    sudo iptables -P FORWARD ACCEPT
-    sudo netfilter-persistent save -c
-    sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
-    echo "Flushed!"
+# Flush iptables rules
+echo "Flushing iptables..."
+iptables --flush
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+netfilter-persistent save -c
+DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
+echo "Iptables flushed."
 
-    sudo snap remove oracle-cloud-agent && sudo snap remove lxd && sudo snap remove core18 && sudo snap remove core20 && sudo snap remove snapd 
-    sudo apt remove snapd -y && sudo apt autoremove -y
-    sudo rm -rf /root/snap && sudo rm -rf /snap
-    
-    if [ -d /home/ubuntu ];then
-        echo "locking ubuntu account"
-        sudo usermod -L ubuntu
-        sudo passwd -l ubuntu
-        sudo chage -E0 ubuntu
-        sudo usermod -s /sbin/nologin ubuntu
-        echo "locked"
-    fi
+# Remove all Snap packages
+snap_list=$(snap list | awk '{print $1}')
+for package in $snap_list; do
+    snap remove "$package"
+done
+
+ # Remove Snapd
+if dpkg -l | grep -q snapd; then
+    echo "Removing Snapd..."
+    apt remove snapd -y
+    apt autoremove -y
+    rm -rf /root/snap
+    rm -rf /snap
+fi
+
+if id "ubuntu" &>/dev/null; then
+    echo "Locking ubuntu account..."
+    usermod -L ubuntu
+    passwd -l ubuntu
+    chage -E0 ubuntu
+    usermod -s /sbin/nologin ubuntu
+    echo "ubuntu account locked."
+fi
+
+echo "Script execution completed."
