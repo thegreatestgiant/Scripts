@@ -17,8 +17,6 @@ alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
 alias grep='grep --color=auto'
-alias unmount='fusermount -u Kavita'
-alias remount='fusermount -u Kavita; mount -a'
 HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc > /dev/null
 
     if ! id "sean" >/dev/null 2>&1; then
