@@ -1,9 +1,19 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo "This script must be run as root."
+    exit 69
+fi
+
 PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "fuse3" "curl" "wget")
 
 setup_shell() {
-echo "
+    local bashrc_file="/etc/bash.bashrc"
+
+    # Check if aliases are already in /etc/bash.bashrc
+    if ! grep -q "alias bat='batcat'" "$bashrc_file"; then
+        echo "Adding aliases to $bashrc_file"
+        cat <<EOL >> "$bashrc_file"
 alias bat='batcat'
 alias cmatrix='cmatrix -sb'
 alias i='sudo apt install -y'
@@ -17,23 +27,35 @@ alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
 alias grep='grep --color=auto'
-HISTTIMEFORMAT='%Y-%m-%d %T '" | sudo tee -a /etc/bash.bashrc > /dev/null
+HISTTIMEFORMAT='%Y-%m-%d %T '
+EOL
+    fi
 
-if ! id "sean" >/dev/null 2>&1; then
-    setup_better_user
-fi
+    if ! id "sean" >/dev/null 2>&1; then
+        setup_better_user
+    fi
 
-if ! grep -q "^docker:" /etc/group; then
-    sudo groupadd docker
-fi
-sudo usermod -aG docker sean
-newgrp docker
-exec bash
+    # Check if "sean" is already a member of the "docker" group
+    if ! groups sean | grep -q "\bdocker\b"; then
+        echo "Adding 'sean' to the 'docker' group"
+        usermod -aG docker sean
+        echo "Please run 'newgrp docker' or restart your shell for group changes to take effect."
+    fi
 }
+
 
 update() {
     DEBIAN_FRONTEND=noninteractive apt update && DEBIAN_FRONTEND=noninteractive apt upgrade -y
+}
 
+remove_installed_from_list() {
+    local installed_packages=()
+    for package in "${PACKAGES[@]}"; do
+        if ! dpkg -l | grep -q "ii  $package "; then
+            installed_packages+=("$package")
+        fi
+    done
+    PACKAGES=("${installed_packages[@]}")
 }
 
 install_all_packages() {
@@ -43,12 +65,13 @@ install_all_packages() {
   echo "
   Installing all packages
   "
-  sudo apt install --no-install-recommends -y "${PACKAGES[@]}"
+  remove_installed_from_list
+  apt install --no-install-recommends -y "${PACKAGES[@]}"
   echo "Done!"
 }
 
 setup_better_user() {
-    sudo bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/users.sh)"
+    bash -c "$(curl -sSL https://raw.githubusercontent.com/thegreatestgiant/Scripts/main/users.sh)"
 }
 
 install_all_packages
