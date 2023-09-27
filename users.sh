@@ -26,10 +26,7 @@ if [ ! -f /home/sean/.ssh/authorized_keys ]; then
 fi
 
 # Add sudo configurations
-cat <<EOF > /etc/sudoers.d/all-sudo
-%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
-sean   ALL=(ALL:ALL) NOPASSWD: ALL
-EOF
+echo "sean ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-user-sean
 
 # Flush iptables rules
 echo "Flushing iptables..."
