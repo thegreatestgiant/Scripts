@@ -38,14 +38,14 @@ netfilter-persistent save -c
 DEBIAN_FRONTEND=noninteractive dpkg-reconfigure iptables-persistent
 echo "Iptables flushed."
 
-# Remove all Snap packages
-snap_list=$(snap list | awk '{print $1}')
-for package in $snap_list; do
-    snap remove "$package"
-done
-
  # Remove Snapd
 if dpkg -l | grep -q snapd; then
+    # Remove all Snap packages
+    snap_list=$(snap list | awk '{print $1}')
+    for package in $snap_list; do
+        snap remove "$package"
+    done
+    
     echo "Removing Snapd..."
     apt remove snapd -y
     apt autoremove -y
