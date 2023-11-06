@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 69
 fi
 
-PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "fuse3" "curl" "wget")
+PACKAGES=("nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "curl" "wget")
 
 setup_shell() {
     local bashrc_file="/etc/bash.bashrc"
