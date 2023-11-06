@@ -82,7 +82,8 @@ setup_better_user() {
 
 install_neovim() {
     curl -Lo /usr/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-    chmod u+x /usr/bin/nvim
+    chmod +x /usr/bin/nvim
+    chown 0:0 /usr/bin/nvim
     add-apt-repository universe
     apt install -y libfuse2 fuse libfuse2
     modprobe fuse
