@@ -28,6 +28,10 @@ alias weather='curl wttr.in'
 alias zupdate='sudo apt update && sudo apt upgrade -y'
 alias grep='grep --color=auto'
 HISTTIMEFORMAT='%Y-%m-%d %T '
+alias ncdir="cd ~/.config/nvim"
+alias ncf="nvim ~/.config/nvim/init.lua"
+alias brc="nvim ~/.bashrc"
+alias nv="nvim"
 EOL
     echo "In order for alias to take effect you must restart shell"
     fi
