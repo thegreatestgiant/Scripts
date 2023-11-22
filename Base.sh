@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 69
 fi
 
-PACKAGES=("sudo" "nano" "net-tools" "docker" "docker.io" "docker-compose" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "curl" "wget")
+PACKAGES=("sudo" "nano" "net-tools" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "wget")
 
 setup_shell() {
     local bashrc_file="/etc/bash.bashrc"
@@ -71,6 +71,11 @@ install_all_packages() {
   echo "Updating before installing all_packages"
   update
   ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+  echo "
+  Installing Docker
+  "
+  bash -c "$(curl -fsSL https://get.docker.com)"
+  curl -fsSL https://get.docker.com
   echo "
   Installing all packages
   "
