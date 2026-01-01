@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 69
 fi
 
-PACKAGES=("sudo" "nano" "net-tools" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "wget" "tmux")
+PACKAGES=("sudo" "nano" "net-tools" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "wget" "tmux" "libfuse2" "rsync")
 
 setup_shell() {
     local bashrc_file="/etc/bash.bashrc"
@@ -86,15 +86,15 @@ setup_better_user() {
 }
 
 install_neovim() {
-    curl -Lo /usr/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    curl -Lo /usr/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
     chmod +x /usr/bin/nvim
     chown 0:0 /usr/bin/nvim
-    add-apt-repository universe
-    apt install -y libfuse2 fuse libfuse2
-    modprobe fuse
-    groupadd fuse
-    user="$(whoami)"
-    usermod -a -G fuse $user
+    # add-apt-repository universe
+    # apt install -y fuse
+    # modprobe fuse
+    # groupadd fuse
+    # user="$(whoami)"
+    # usermod -a -G fuse $user
 }
 
 install_all_packages
