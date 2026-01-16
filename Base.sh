@@ -5,8 +5,38 @@ if [ "$EUID" -ne 0 ]; then
     exit 69
 fi
 
-PACKAGES=("sudo" "nano" "net-tools" "nautilus" "bat" "sshfs" "zip" "unzip" "tree" "git" "gh" "fuse3" "wget" "tmux" "libfuse2" "rsync")
+PACKAGES=(
+    # --- Your Original List ---
+    "sudo"
+    "nano"
+    "net-tools"
+    "nautilus"
+    "bat"
+    "sshfs"
+    "zip"
+    "unzip"
+    "tree"
+    "git"
+    "gh"
+    "fuse3"
+    "wget"
+    "tmux"
+    "libfuse2"
+    "rsync"
 
+    # --- Added from Section 1 (Essentials & Shell) ---
+    "zsh"
+    "curl"
+    "stow"
+    "xclip"
+
+    # --- Added from Section 2 (Modern CLI Tools) ---
+    "neovim"
+    "ripgrep"
+    "eza"
+    "vivid"
+    "yq"
+)
 setup_shell() {
     local bashrc_file="/etc/bash.bashrc"
 
