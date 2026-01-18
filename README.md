@@ -1,3 +1,12 @@
+# [DEPRECATED]
+
+**⚠️ This project is no longer maintained.**
+
+All active development and configuration files have moved to:
+👉 **https://github.com/thegreatestgiant/DotFiles.git**
+
+### What's left here?
+The only file in this repository that is still slightly relevant is the `setup_better_user` script. For everything else, please check the link above.
 # Scripts
 
 ### Here is the code to run them
